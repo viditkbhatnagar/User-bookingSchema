@@ -1,3 +1,54 @@
+//Sign In Model
+
+//USERS
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     SignIn:
+ *       type: object
+ *       required:
+ *         - email
+ *         - password
+ *       properties:
+ *         email:
+ *           type: string
+ *           description: User's Email
+ *         password:
+ *             type: string
+ *             description: User's password
+ *       example:
+ *         email: greengoblin@gmail.com
+ *         password: $2a$06$waZf3l6.aCeLCqy9lSpQSe5SGaB2KyFGHAOrmtubDyiMCyTZGtQ3i
+ */
+
+   /**
+ * @swagger
+ * /signIn:
+ *   post:
+ *     summary: Sign In to get Authorization Token
+ *     tags: [SignIn]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/SignIn'
+ *     responses:
+ *       200:
+ *         description: User was successfully created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SignIn'
+ *       500:
+ *         description: Some server error
+ */
+
+
+
+
 
 //USERS
 
@@ -12,6 +63,8 @@
  *         - name
  *         - email
  *         - gender
+ *         - password
+ *         - isAdmin
  *       properties:
  *         user_id:
  *           type: string
@@ -25,12 +78,21 @@
  *         gender:
  *            type: string
  *            description: User's Gender
+ *         password:
+ *             type: string
+ *             description: User's password
+ *         isAdmin:
+ *             type: string
+ *             description: User is admin or not
  *       example:
  *         name: Peter Parker
  *         email: peterparker@gmail.com
- *         gender: male
+ *         gender: male/female
+ *         password: User Password
+ *         isAdmin : true/false
  */
 
+ 
 
  /**
  * @swagger
@@ -450,28 +512,4 @@
  */
 
 
-     //get tokenn
-
-
-         /**
- * @swagger
- * /api/login:
- *   post:
- *     summary: Generate a new JWT Token
- *     tags: [Users]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/Users'
- *     responses:
- *       200:
- *         description: User was successfully created
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Users'
- *       500:
- *         description: Some server error
- */
+  

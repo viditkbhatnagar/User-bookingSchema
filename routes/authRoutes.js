@@ -155,13 +155,16 @@ module.exports.authorization = async (req, res, next) => {
 
 
 module.exports.authorizationJwt = async (req, res, next) => {
-  try {
-    if (req.headers.authorization) {
-      console.log(userSignIn);
-      const token = req.cookies.access_token;
+  const token = req.cookies.access_token;
       console.log("TOKEN------------------->", token);
       console.log("Cookies aceess token--------->", req.cookies.access_token);
-      if (token == req.cookies.access_token) {
+      let newJwt = 'Bearer ' + req.cookies.access_token
+      console.log(newJwt);
+  try {
+    if (req.headers.authorization) {
+      console.log("request authorization ------> ",req.headers.authorization);
+      if (req.headers.authorization == newJwt) {
+        console.log("Inside the new authoization jwt");
         var checkRole = await Users.findOne({
           isAdmin: "true",
         });

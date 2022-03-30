@@ -557,6 +557,7 @@ var userSignIn = async (req, res) => {
     where: {
       email: req.body.email,
       password: req.body.password,
+      isAdmin: ["true","false"]
     },
   });
   console.log(findUser);
@@ -567,7 +568,7 @@ var userSignIn = async (req, res) => {
     console.log(password);
     console.log(findUser.password);
 
-    if (password == findUser.password) {
+    if (password == findUser.password && findUser.isAdmin == "true") {
       console.log("decrypting");
       const token = jwt.sign({ id: 7, role: "captain" }, "spiderman");
       console.log(token);
@@ -578,21 +579,12 @@ var userSignIn = async (req, res) => {
         })
         .status(200)
         .json({ message: "Logged in successfully 😊 👌",token });
-      // let token = createToken(findUser.email);
-      // res.cookie(token, {httpOnly:true});
-      // console.log(cookie);
-      
-
-      res.status(200).json({
-        message: "Login Successfull",
-        token,
-      });
     } else {
       res.json({
-        data: "Please enter correct password",
+        data: "You're not an admnin, kindly connect with the administrator",
       });
     }
-  } else {
+  } else{
     res.json({
       data: "User Not Found",
     });

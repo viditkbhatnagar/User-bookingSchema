@@ -8,23 +8,9 @@
 
 <body>
   <div>
-    <button id="test">Test Loggedin</button>
     <button id="goodLogin">Good Login</button>
 
   </div>
-  <div class="form">
-
-    <form action="/">
-      <lottie-player src="https://assets4.lottiefiles.com/datafiles/XRVoUu3IX4sGWtiC3MPpFnJvZNq7lVWDCa8LSqgS/profile.json"  background="transparent"  speed="1"  style="justify-content: center;" loop  autoplay></lottie-player>
-      <input type="text" id="email" placeholder="Email" required>
-      <input type="password" id="password" placeholder="Password"  required>
-      <i class="fas fa-eye" onclick="show()"></i> 
-      <br>
-      <br>
-      <!-- <button id="loginbutton">LOGIN</button> -->
-      <p class="message"></p>
-    </form>
-
     <script>
     
     </script>
@@ -36,22 +22,13 @@
     $('#goodLogin').click(function() {
 
       const form = document.querySelector('form');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = form.email.value;
-      const password = form.password.value;
-    });
       $.ajax({
-        type: "POST",
-        url: "/signin",
-        data: {
-          email: form.email.value,
-          password: form.password.value
-        },
+        type: "GET",
+        url: "/api-docs",
+
         success: function(data) {
-          localStorage.token = data.token;
           location.href = "/api-docs",
-          alert('Got a token from the server! Token: ' + data.token);
+          alert('Welcome to booking schema');
         },
         error: function() {
           alert("Login Failed");
@@ -59,29 +36,6 @@
       });
     });
 
-
-
-
-
-    $('#test').click(function() {
-      var db = require('./../models/index')
-      const Users = db.sequelize.models.users;
-      var getAllUser = async (req, resp) => {
-  let data = await Users.findAll({})
-  let response = {
-    response:data,
-  };
-  resp.status(200).json(response);
-};
-    });
-
-   
-
-
-
-    $('#logout').click(function() {
-      localStorage.clear();
-    });
   });
   </script>
 </body>
