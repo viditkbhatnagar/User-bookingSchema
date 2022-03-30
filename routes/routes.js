@@ -10,7 +10,7 @@ app.use(cookieParser());
 var passport = require('passport');
 var JwtStrategy = require('passport-jwt').Strategy;
 var jwt = require('jwt-simple');
-const {authHandler,adminAccess, adminCheck, authorization} = require('./authRoutes');
+const {authHandler,adminAccess, adminCheck, authorization, authorizationJwt} = require('./authRoutes');
 const path = require('path');
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (id) => {
@@ -25,7 +25,7 @@ app.get("/",(res,resp) => {
     resp.sendFile(path.join(__dirname+ './../loginPage/login.html'))
 });
 
-app.get('/getAllUser',authorization,userCtrl.getAllUser);
+app.get('/getAllUser',authorizationJwt,userCtrl.getAllUser);
 app.get("/getAllBookings", userCtrl.getAllBookings);
 app.get("/getAllFoodOrders",userCtrl.getAllFoodOrders);
 app.get("/getAllCoupons",userCtrl.getAllCoupons);

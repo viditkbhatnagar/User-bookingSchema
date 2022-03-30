@@ -126,6 +126,7 @@ module.exports.adminCheck = async (req, res, next) => {
 
 
 module.exports.authorization = async (req, res, next) => {
+  if(req.headers.authorization){}
   const token = req.cookies.access_token;
   console.log("Cookies access token---------->",req.cookies.access_token);
   if (!token) {
@@ -142,7 +143,8 @@ module.exports.authorization = async (req, res, next) => {
     if (checkRole.isAdmin == "true") {
       next();
 
-    } else {
+    } 
+    else {
       return res.sendStatus(403);
     }
   } catch {
@@ -150,3 +152,44 @@ module.exports.authorization = async (req, res, next) => {
     return res.sendStatus(403);
   }
 };
+
+
+module.exports.authorizationJwt = async (req, res, next) => {
+  try {
+    if (req.headers.authorization) {
+      console.log(userSignIn);
+      const token = req.cookies.access_token;
+      console.log("TOKEN------------------->", token);
+      console.log("Cookies aceess token--------->", req.cookies.access_token);
+      if (token == req.cookies.access_token) {
+        var checkRole = await Users.findOne({
+          isAdmin: "true",
+        });
+
+        console.log("in checkrole");
+        console.log(checkRole);
+        if (checkRole) {
+          console.log("Checkrole works");
+        } else {
+          res.status(400).json({
+            error: "Access Denied. Only Admin can access it",
+          });
+          next();
+        }
+      } else {
+        res.status(400).json({ error: "Invalid Token" });
+      }
+    } else {
+      return res.status(400).json({ message: "Authorization Required" });
+    }
+    next();
+  } catch (error) {
+    res.status(400).json({
+      data: "Token Malfomed",
+      message: "erorr",
+    });
+  }
+};
+
+
+
