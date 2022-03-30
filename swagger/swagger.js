@@ -100,6 +100,9 @@
  *   get:
  *     summary: Returns the list of Users
  *     tags: [Users]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     responses:
  *       200:
  *         description: The list of the users
@@ -118,6 +121,9 @@
  *   get:
  *     summary: Returns the list of all food orders of users
  *     tags: [Users]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     responses:
  *       200:
  *         description: The list of the users
@@ -135,6 +141,9 @@
  *   get:
  *     summary: Returns the list of all  bookings of users
  *     tags: [Users]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     responses:
  *       200:
  *         description: The list of the users
@@ -152,6 +161,9 @@
  *   get:
  *     summary: Get specific users food orders
  *     tags: [Users]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     parameters:
  *       - in: path
  *         name: id
@@ -176,6 +188,9 @@
  *   get:
  *     summary: Get specific users bookings
  *     tags: [Users]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     parameters:
  *       - in: path
  *         name: id
@@ -200,6 +215,9 @@
  *   get:
  *     summary: Returns the top five users
  *     tags: [Users]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     responses:
  *       200:
  *         description: The list of the users
@@ -217,6 +235,9 @@
  *   post:
  *     summary: Add a new user
  *     tags: [Users]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     requestBody:
  *       required: true
  *       content:
@@ -265,6 +286,9 @@
  *   get:
  *     summary: Returns the list of Bookings
  *     tags: [Bookings]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     responses:
  *       200:
  *         description: The list of all the bookings
@@ -283,6 +307,9 @@
  *   get:
  *     summary: Returns the list of Coupons associated with bookings
  *     tags: [Bookings]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     responses:
  *       200:
  *         description: The list of all the coupons associated with bookings
@@ -301,6 +328,9 @@
  *   post:
  *     summary: Add a new Booking
  *     tags: [Bookings]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     requestBody:
  *       required: true
  *       content:
@@ -325,6 +355,9 @@
  *   get:
  *     summary: Get specific coupons associated with bookings
  *     tags: [Bookings]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     parameters:
  *       - in: path
  *         name: id
@@ -372,6 +405,9 @@
  *   get:
  *     summary: Returns the list of all Food Items
  *     tags: [FoodOrders]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     responses:
  *       200:
  *         description: The list of all the foodorders
@@ -389,6 +425,9 @@
  *   get:
  *     summary: Returns the list of Coupons associated with food orders
  *     tags: [FoodOrders]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     responses:
  *       200:
  *         description: The list of all the coupons associated with food items
@@ -429,6 +468,9 @@
  *   get:
  *     summary: Get specific coupons associated with bookings
  *     tags: [FoodOrders]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     parameters:
  *       - in: path
  *         name: id
@@ -477,6 +519,9 @@
  *   get:
  *     summary: Returns the list of all coupons
  *     tags: [Coupons]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     responses:
  *       200:
  *         description: The list of all the coupons
@@ -494,6 +539,9 @@
  *   post:
  *     summary: Add a new Coupon
  *     tags: [Coupons]
+ *     security: [{
+            bearerAuth: []
+        }]
  *     requestBody:
  *       required: true
  *       content:

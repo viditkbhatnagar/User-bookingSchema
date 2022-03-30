@@ -7,19 +7,64 @@
 </head>
 
 <body>
-  <div>
-    <button id="goodLogin">Good Login</button>
-
-  </div>
-    <script>
+  <style>
+  body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+.login{
+    background-color:#B80C4D;
+    border: #2e6da4;
+  	font-family: Arial, Geneva, Arial, Helvetica,  sans-serif;
+    font-size: 15px;
+    color: #fff;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: normal;
     
-    </script>
+    border-radius: 4px;
+    line-height: 1.5;
+    text-decoration:none;
+}
+.login:hover{
+    background-color: blueviolet;
+    border: #2e6da4;
+  	font-family: Arial, Geneva, Arial, Helvetica,  sans-serif;
+	font-size: 15px;
+    color: #000;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    
+    border-radius: 4px;
+    line-height: 1.5;
+    text-decoration:none;
+}
+
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
+
+    <div class="center">
+      <img src="https://cdn.glitch.com/0e4d1ff3-5897-47c5-9711-d026c01539b8%2Fbddfd6e4434f42662b009295c9bab86e.gif?v=1573157191712" alt="this slowpoke moves"  width="250" alt="404 image"/>
+      <h2>User-bookingSchema</h2>
+    <button class="login" id="login">Click me to view Api's</button>
+</div>
+
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript">
     
   $(document).ready(function() {
-    $('#goodLogin').click(function() {
+    $('#login').click(function() {
 
       const form = document.querySelector('form');
       $.ajax({
@@ -38,6 +83,7 @@
 
   });
   </script>
+  
 </body>
 
 </html>

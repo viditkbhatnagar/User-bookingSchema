@@ -168,7 +168,6 @@ module.exports.authorizationJwt = async (req, res, next) => {
         var checkRole = await Users.findOne({
           isAdmin: "true",
         });
-
         console.log("in checkrole");
         console.log(checkRole);
         if (checkRole) {

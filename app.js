@@ -17,9 +17,7 @@ const options = {
                 }
             }
         },
-        security: [{
-            bearerAuth: []
-        }],
+        
         info: {
             title:"Booking Schema API",
             version: "1.0.0",
